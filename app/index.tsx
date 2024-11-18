@@ -5,99 +5,90 @@ import {
   Spacings,
   NumberInput,
   Badge,
+  Dash,
 } from "react-native-ui-lib";
 import { useTranslation } from "react-i18next";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { View, Text, Button, Dash, Image } from "react-native-ui-lib";
+import { View, Button, Image } from "react-native-ui-lib";
 import { features } from "@constants/features";
-
 import Svg, { Path } from "react-native-svg";
-import Animated from "react-native-reanimated";
+import { colors } from "@/constants/colors";
+import { Text } from "react-native";
 
 export default function HomeScreen() {
   const { t } = useTranslation();
 
-  const AnimatedText = Animated.createAnimatedComponent(Text);
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View flex row center>
-        <Image assetName="branding" width={40} height={40} marginR-10 />
-        <Text primary text30BO>
-          CloudTurmbuch
-        </Text>
-      </View>
-      <View flex center>
-        <Text text40R textC>
-          Die All-in-one App für
-        </Text>
-        <Text text40R textC>
-          Rettungsschwimmer/innen
-        </Text>
-        <Text text40R textC>
-          zur effizienten Verwaltung
-        </Text>
-        <Text text40R textC>
-          von
-        </Text>
+      <View className="flex-1 justify-between gap-4">
+        <View />
+        <View className="flex flex-row items-center justify-center px-4">
+          <Image assetName="branding" width={40} height={40} marginR-10 />
+          <Text className="text-primary-600 text-5xl font-bold">Turmbuch</Text>
+        </View>
+        <View className="flex flex-col  items-center  px-4">
+          <Text
+            className="text-textColor-700 text-3xl
+          "
+          >
+            Die All-in-one App für
+          </Text>
+          <Text className="text-textColor-700 text-3xl">
+            Rettungsschwimmer/innen
+          </Text>
+          <Text className="text-textColor-700 text-3xl">
+            zur effizienten Verwaltung
+          </Text>
+          <Text className="text-textColor-700 text-3xl">von</Text>
 
-        <View
-          bg-$backgroundPrimary
-          marginT-20
-          padding-5
-          br10
-          style={{ transform: [{ rotate: "-10deg" }] }}
-        >
-          <Text text40R white>
+          <Text className="text-white text-3xl bg-primary-600 p-1 rounded-md -rotate-6 mt-6">
             {features[0]}
           </Text>
         </View>
-      </View>
-      <View
-        padding-10
-        centerV
-        flex
-        bg-tertiary
-        style={{ borderTopLeftRadius: 30, borderTopRightRadius: 30, gap: 10 }}
-      >
-        <Button label="Anmelden" bg-$backgroundPrimary />
-        <Button
-          bg-$backgroundPrimaryLight
-          label="Mit Google fortsetzen"
-          iconSource={() => (
-            <Svg
-              style={{ marginRight: 10 }}
-              width={28}
-              height={28}
-              preserveAspectRatio="xMidYMid"
-              viewBox="-3 0 262 262"
-            >
-              <Path
-                fill="#4285F4"
-                d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
-              />
-              <Path
-                fill="#34A853"
-                d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"
-              />
-              <Path
-                fill="#FBBC05"
-                d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782"
-              />
-              <Path
-                fill="#EB4335"
-                d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
-              />
-            </Svg>
-          )}
-        ></Button>
-        <Dash style={{ width: "100%" }} containerStyle={{ width: "100%" }} />
-        <Button
-          label="Registrieren"
-          outlineColor={Colors.primary}
-          outline
-          outlineWidth={2}
-        />
+
+        <View className="flex bg-tertiary-100 px-4 py-4 gap-4 w-full rounded-tl-4xl rounded-tr-4xl">
+          <Button label="Anmelden" className="bg-primary-600" />
+          <Button
+            className="bg-primary-100"
+            label="Mit Google fortsetzen"
+            iconSource={() => (
+              <Svg
+                width={28}
+                height={28}
+                preserveAspectRatio="xMidYMid"
+                viewBox="-3 0 262 262"
+              >
+                <Path
+                  fill="#4285F4"
+                  d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
+                />
+                <Path
+                  fill="#34A853"
+                  d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"
+                />
+                <Path
+                  fill="#FBBC05"
+                  d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82 0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602l42.356-32.782"
+                />
+                <Path
+                  fill="#EB4335"
+                  d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
+                />
+              </Svg>
+            )}
+          ></Button>
+          <Dash
+            thickness={4}
+            style={{ backgroundColor: colors.primary[300] }}
+            containerStyle={{ width: "100%" }}
+          />
+          <Button
+            label="Registrieren"
+            outlineColor={Colors.primary}
+            outline
+            outlineWidth={2}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );

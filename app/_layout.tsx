@@ -10,7 +10,10 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 import { SelectProvider } from "@mobile-reality/react-native-select-pro";
 import "@lib/i18n";
-import { Colors, Typography, Spacings } from "react-native-ui-lib";
+import "@styles/global.css";
+import { Colors, Typography, Spacings, Text, Dash } from "react-native-ui-lib";
+import { colors } from "@constants/colors";
+import { remapProps } from "nativewind";
 
 // Laden der Assets
 import { Assets } from "react-native-ui-lib";
@@ -26,11 +29,10 @@ Assets.loadAssetsGroup("icons", {
 
 // Initialisierung des Themes basierend auf dem DRK Styleguide
 Colors.loadColors({
-  primary: "#008ccd", // Main actions, buttons
-  secondary: "#002d55", // Icons, titles, subtitles
-  tertiary: "#f5f0e6", // Cards, graphic points
-  textC: "#20303C", // Text color remains same
-  backgroundC: "#ffffff", // Background color
+  primary: colors.primary[600], // Main actions, buttons
+  secondary: colors.secondary[600], // Icons, titles, subtitles
+  tertiary: colors.tertiary[100], // Cards, graphic points
+  textC: colors.text[700],
 });
 
 Colors.loadSchemes({
@@ -56,6 +58,11 @@ Colors.loadSchemes({
     $backgroundTertiaryLight: Colors.getColorTint(Colors.tertiary, 30), // Heller Farbton
     $backgroundTertiaryHeavy: Colors.getColorTint(Colors.tertiary, 70), // Dunkler Farbton
   },
+});
+
+remapProps(Dash, {
+  className: "style",
+  containerClassName: "containerStyle",
 });
 
 export default function RootLayout() {
