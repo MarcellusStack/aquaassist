@@ -6,14 +6,16 @@ import {
   NumberInput,
   Badge,
   Dash,
+  Text,
+  Image,
 } from "react-native-ui-lib";
 import { useTranslation } from "react-i18next";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { View, Button, Image } from "react-native-ui-lib";
+import { View, Button } from "react-native-ui-lib";
 import { features } from "@constants/features";
 import Svg, { Path } from "react-native-svg";
 import { colors } from "@/constants/colors";
-import { Text } from "react-native";
+import { Link } from "expo-router";
 
 export default function HomeScreen() {
   const { t } = useTranslation();
@@ -24,35 +26,46 @@ export default function HomeScreen() {
         <View />
         <View className="flex flex-row items-center justify-center px-4">
           <Image assetName="branding" width={40} height={40} marginR-10 />
-          <Text className="text-primary-600 text-5xl font-bold">Turmbuch</Text>
+          <Text className="text-5xl font-bold" color={colors.primary[600]}>
+            Turmbuch
+          </Text>
         </View>
         <View className="flex flex-col  items-center  px-4">
           <Text
-            className="text-textColor-700 text-3xl
+            color={colors.text[700]}
+            className=" text-3xl
           "
           >
             Die All-in-one App für
           </Text>
-          <Text className="text-textColor-700 text-3xl">
+          <Text color={colors.text[700]} className=" text-3xl">
             Rettungsschwimmer/innen
           </Text>
-          <Text className="text-textColor-700 text-3xl">
+          <Text color={colors.text[700]} className=" text-3xl">
             zur effizienten Verwaltung
           </Text>
-          <Text className="text-textColor-700 text-3xl">von</Text>
+          <Text color={colors.text[700]} className=" text-3xl">
+            von
+          </Text>
 
-          <Text className="text-white text-3xl bg-primary-600 p-1 rounded-md -rotate-6 mt-6">
+          <Text
+            style={{ backgroundColor: colors.primary[600] }}
+            color="white"
+            className=" text-3xl p-1 rounded-md -rotate-6 mt-6"
+          >
             {features[0]}
           </Text>
         </View>
 
         <View className="flex bg-tertiary-100 px-4 py-4 gap-4 w-full rounded-tl-4xl rounded-tr-4xl">
-          <Button label="Anmelden" className="bg-primary-600" />
+          <Button label="Anmelden" backgroundColor={colors.primary[600]} />
+          {/* <Link href="/sign-in">Sign In</Link> */}
           <Button
-            className="bg-primary-100"
+            backgroundColor={colors.primary[300]}
             label="Mit Google fortsetzen"
             iconSource={() => (
               <Svg
+                style={{ marginRight: 6 }}
                 width={28}
                 height={28}
                 preserveAspectRatio="xMidYMid"
@@ -79,12 +92,12 @@ export default function HomeScreen() {
           ></Button>
           <Dash
             thickness={4}
-            style={{ backgroundColor: colors.primary[300] }}
+            style={{ backgroundColor: "#b4b4b4" }}
             containerStyle={{ width: "100%" }}
           />
           <Button
             label="Registrieren"
-            outlineColor={Colors.primary}
+            outlineColor={colors.primary[600]}
             outline
             outlineWidth={2}
           />

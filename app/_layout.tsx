@@ -13,7 +13,6 @@ import "@lib/i18n";
 import "@styles/global.css";
 import { Colors, Typography, Spacings, Text, Dash } from "react-native-ui-lib";
 import { colors } from "@constants/colors";
-import { remapProps } from "nativewind";
 
 // Laden der Assets
 import { Assets } from "react-native-ui-lib";
@@ -30,7 +29,7 @@ Assets.loadAssetsGroup("icons", {
 // Initialisierung des Themes basierend auf dem DRK Styleguide
 Colors.loadColors({
   primary: colors.primary[600], // Main actions, buttons
-  secondary: colors.secondary[600], // Icons, titles, subtitles
+  secondary: colors.secondary[950], // Icons, titles, subtitles
   tertiary: colors.tertiary[100], // Cards, graphic points
   textC: colors.text[700],
 });
@@ -60,11 +59,6 @@ Colors.loadSchemes({
   },
 });
 
-remapProps(Dash, {
-  className: "style",
-  containerClassName: "containerStyle",
-});
-
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
@@ -86,6 +80,7 @@ export default function RootLayout() {
       <SelectProvider>
         <Stack>
           <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
           <Stack.Screen name="+not-found" />
         </Stack>
       </SelectProvider>
