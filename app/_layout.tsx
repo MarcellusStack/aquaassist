@@ -11,7 +11,7 @@ import "react-native-reanimated";
 import { SelectProvider } from "@mobile-reality/react-native-select-pro";
 import "@lib/i18n";
 import "@styles/global.css";
-import { Colors, Typography, Spacings, Text, Dash } from "react-native-ui-lib";
+import { Colors } from "react-native-ui-lib";
 import { colors } from "@constants/colors";
 
 // Laden der Assets

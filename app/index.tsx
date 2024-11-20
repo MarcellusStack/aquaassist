@@ -15,21 +15,18 @@ import { View, Button } from "react-native-ui-lib";
 import { features } from "@constants/features";
 import Svg, { Path } from "react-native-svg";
 import { colors } from "@/constants/colors";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
+import { Branding } from "@components/branding";
 
 export default function HomeScreen() {
   const { t } = useTranslation();
+  const router = useRouter();
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View className="flex-1 justify-between gap-4">
         <View />
-        <View className="flex flex-row items-center justify-center px-4">
-          <Image assetName="branding" width={40} height={40} marginR-10 />
-          <Text className="text-5xl font-bold" color={colors.primary[600]}>
-            Turmbuch
-          </Text>
-        </View>
+        <Branding />
         <View className="flex flex-col  items-center  px-4">
           <Text
             color={colors.text[700]}
@@ -58,8 +55,12 @@ export default function HomeScreen() {
         </View>
 
         <View className="flex bg-tertiary-100 px-4 py-4 gap-4 w-full rounded-tl-4xl rounded-tr-4xl">
-          <Button label="Anmelden" backgroundColor={colors.primary[600]} />
-          {/* <Link href="/sign-in">Sign In</Link> */}
+          <Button
+            label="Anmelden"
+            backgroundColor={colors.primary[600]}
+            onPress={() => router.push("/sign-in")}
+          />
+
           <Button
             backgroundColor={colors.primary[300]}
             label="Mit Google fortsetzen"
