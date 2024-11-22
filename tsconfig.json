@@ -3,21 +3,12 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@constants/*": [
-        "./constants/*"
-      ],
-      "@lib/*": [
-        "./lib/*"
-      ],
-      "@components/*": [
-        "./components/*"
-      ],
-      "@styles/*": [
-        "./styles/*"
-      ]
+      "@/*": ["./*"],
+      "@constants/*": ["./constants/*"],
+      "@lib/*": ["./lib/*"],
+      "@utils/*": ["./utils/*"],
+      "@components/*": ["./components/*"],
+      "@styles/*": ["./styles/*"]
     }
   },
   "include": [

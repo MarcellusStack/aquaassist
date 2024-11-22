@@ -15,10 +15,10 @@ export default function SignInScreen() {
       <Text className="text-gray-500 text-xl">Welcome back!</Text>
       <AuthForm />
       <View className="flex flex-row gap-2 justify-between w-full">
-        <Link href="sign-up" className="text-primary-600 text-xl">
+        <Link href="/sign-up" className="text-primary-600 text-xl">
           Sign Up
         </Link>
-        <Link href="forgot-password" className="text-gray-400 text-xl">
+        <Link href="/forgot-password" className="text-gray-400 text-xl">
           Forgot Password?
         </Link>
       </View>

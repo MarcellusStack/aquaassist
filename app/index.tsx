@@ -64,6 +64,7 @@ export default function HomeScreen() {
           <Button
             backgroundColor={colors.primary[300]}
             label="Mit Google fortsetzen"
+            onPress={() => router.push("/todos")}
             iconSource={() => (
               <Svg
                 style={{ marginRight: 6 }}

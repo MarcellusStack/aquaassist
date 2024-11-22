@@ -20,10 +20,10 @@ export default function ForgotPasswordScreen() {
       </Text>
       <AuthForm />
       <View className="flex flex-row gap-2 justify-between w-full">
-        <Link href="sign-up" className="text-primary-600 text-xl">
+        <Link href="/sign-up" className="text-primary-600 text-xl">
           Sign Up
         </Link>
-        <Link href="sign-in" className="text-gray-400 text-xl">
+        <Link href="/sign-in" className="text-gray-400 text-xl">
           Sign In
         </Link>
       </View>
